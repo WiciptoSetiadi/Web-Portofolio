@@ -79,12 +79,23 @@ export class CertificatesSection {
       // No file at all
       previewHtml = `<div class="w-full h-full flex items-center justify-center text-gray-400"><i data-lucide="award" class="w-12 h-12"></i></div>`;
     } else if (isPdf) {
-      // PDF: Display actual document preview via iframe with pointer-events disabled for card clicking
+      // PDF: Responsive System. Iframe on Desktop/Tablet, Fallback Cover on Mobile
       previewHtml = `
-        <div class="w-full h-full relative overflow-hidden bg-white dark:bg-slate-900 pointer-events-none" title="Click to view">
+        <!-- Desktop/Tablet View: Actual Document Iframe -->
+        <div class="hidden md:block w-full h-full relative overflow-hidden bg-white dark:bg-slate-900 pointer-events-none" title="Click to view">
           <iframe src="${cert.image_url}#toolbar=0&navpanes=0&scrollbar=0&view=FitH" class="w-full h-full border-0 pointer-events-none scale-100" loading="lazy"></iframe>
           <div class="absolute inset-0 bg-transparent"></div>
         </div>
+        
+        <!-- Mobile View: Fallback Cover (because mobile browsers block iframe PDFs) -->
+        <div class="md:hidden w-full h-full flex flex-col items-center justify-center p-6 bg-gradient-to-br from-red-50 to-orange-50 dark:from-slate-900 dark:to-slate-800 text-center relative group-hover:from-red-100 group-hover:to-orange-100 transition-colors">
+          <div class="w-14 h-14 rounded-2xl bg-red-500 text-white flex items-center justify-center mb-2 shadow-md group-hover:scale-110 transition-transform">
+            <i data-lucide="file-text" class="w-7 h-7"></i>
+          </div>
+          <span class="text-xs font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wider">PDF Certificate</span>
+          <span class="text-[11px] text-slate-400 dark:text-slate-400 mt-0.5">Click to view full</span>
+        </div>
+        
         <div class="absolute top-2 right-2 bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-sm z-10">PDF</div>
       `;
     } else {

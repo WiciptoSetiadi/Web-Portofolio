@@ -72,18 +72,23 @@ export class ProjectsSection {
         : `<div class="w-full h-full flex items-center justify-center text-gray-400"><i data-lucide="image" class="w-12 h-12"></i></div>`
       }
           
-          <!-- Hover Overlay -->
-          <div class="absolute inset-0 bg-gray-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 backdrop-blur-sm">
-            ${(project.image_url && project.image_url.toLowerCase().endsWith('.pdf')) ? `<a href="${project.image_url}" target="_blank" rel="noopener noreferrer" class="p-3 bg-white text-gray-900 rounded-full hover:scale-110 transition-transform" title="View Document"><i data-lucide="external-link" class="w-5 h-5"></i></a>` : ''}
-            ${project.live_url ? `<a href="${project.live_url}" target="_blank" rel="noopener noreferrer" class="p-3 bg-white text-gray-900 rounded-full hover:scale-110 transition-transform" title="Live Demo"><i data-lucide="external-link" class="w-5 h-5"></i></a>` : ''}
-            ${project.github_url ? `<a href="${project.github_url}" target="_blank" rel="noopener noreferrer" class="p-3 bg-gray-900 text-white rounded-full hover:scale-110 transition-transform border border-gray-700" title="Source Code"><i data-lucide="github" class="w-5 h-5"></i></a>` : ''}
+          <!-- No Hover Overlay on Mobile, keeping clean image view -->
+          <div class="absolute inset-0 bg-gray-900/40 opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 backdrop-blur-[2px] hidden lg:flex">
+             <span class="text-white font-medium text-sm drop-shadow-md">View Details</span>
           </div>
         </div>
         
-        <div class="p-8 flex-1 flex flex-col">
+        <div class="p-6 md:p-8 flex-1 flex flex-col">
           ${project.category ? `<span class="text-xs font-bold text-primary-600 uppercase tracking-wider mb-2">${project.category}</span>` : ''}
           <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">${project.title}</h3>
           <p class="text-slate-600 dark:text-slate-400 mb-6 flex-1 line-clamp-3">${project.short_description || project.description || ''}</p>
+          
+          <!-- Action Links (Always visible for mobile UX) -->
+          <div class="flex items-center gap-3 mb-6">
+            ${(project.image_url && project.image_url.toLowerCase().endsWith('.pdf')) ? `<a href="${project.image_url}" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-sm font-semibold text-primary-600 hover:text-primary-700 bg-primary-50 hover:bg-primary-100 dark:bg-primary-900/30 dark:hover:bg-primary-900/50 dark:text-primary-400 px-3 py-1.5 rounded-lg transition-colors" title="View Document"><i data-lucide="file-text" class="w-4 h-4"></i> View Doc</a>` : ''}
+            ${project.live_url ? `<a href="${project.live_url}" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-sm font-semibold text-primary-600 hover:text-primary-700 bg-primary-50 hover:bg-primary-100 dark:bg-primary-900/30 dark:hover:bg-primary-900/50 dark:text-primary-400 px-3 py-1.5 rounded-lg transition-colors" title="Live Demo"><i data-lucide="external-link" class="w-4 h-4"></i> Live Demo</a>` : ''}
+            ${project.github_url ? `<a href="${project.github_url}" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-gray-900 dark:hover:text-white bg-gray-100 hover:bg-gray-200 dark:bg-slate-800 dark:hover:bg-slate-700 px-3 py-1.5 rounded-lg transition-colors" title="Source Code"><i data-lucide="github" class="w-4 h-4"></i> GitHub</a>` : ''}
+          </div>
           
           <div class="flex flex-wrap gap-2 mt-auto pt-6 border-t border-gray-100 dark:border-slate-800">
             ${(project.tech_stack || []).slice(0, 4).map(tech => `
