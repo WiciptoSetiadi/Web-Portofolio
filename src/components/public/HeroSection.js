@@ -22,7 +22,7 @@ export class HeroSection {
     // Resolve resume URL
     const resume_src = this.settings.resume_url ? storageService.getPublicUrl('resume', this.settings.resume_url) : null;
     return `
-      <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+      <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-white dark:bg-slate-900">
         <!-- Background Elements -->
         <div class="absolute inset-0 z-0">
           <div class="absolute top-20 left-10 w-72 h-72 bg-primary-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
