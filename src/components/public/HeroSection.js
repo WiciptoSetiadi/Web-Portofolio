@@ -41,12 +41,12 @@ export class HeroSection {
               
               <h1 class="heading-xl mb-4">
                 <span class="block">${display_name}</span>
-                <span class="block text-3xl md:text-5xl mt-2 text-slate-600 dark:text-slate-400 h-16 md:h-20">
+                <span class="block text-2xl sm:text-3xl md:text-5xl mt-2 text-slate-600 dark:text-slate-400 min-h-[3rem] md:min-h-[4rem]">
                   I'm a <span id="hero-typing" class="text-primary-600 dark:text-primary-400 font-bold"></span>
                 </span>
               </h1>
               
-              <p class="mt-4 max-w-2xl text-lg md:text-xl text-slate-600 dark:text-slate-400 mx-auto lg:mx-0 mb-10">
+              <p class="mt-4 max-w-2xl text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-400 mx-auto lg:mx-0 mb-8 sm:mb-10">
                 ${display_bio}
               </p>
               
@@ -60,8 +60,8 @@ export class HeroSection {
 
             <!-- Avatar / Illustration -->
             ${show_avatar ? `
-            <div data-aos="fade-left" data-aos-delay="200" class="flex justify-center relative order-1 lg:order-2 mb-8 lg:mb-0">
-               <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+            <div data-aos="fade-left" data-aos-delay="200" class="flex justify-center relative order-1 lg:order-2 mb-8 lg:mb-0 px-4">
+               <div class="relative w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
                   <!-- Abstract shapes behind avatar -->
                   <div class="absolute inset-0 bg-gradient-to-tr from-primary-500 to-purple-500 rounded-full opacity-20 blur-2xl transform scale-110"></div>
                   <!-- Avatar container -->
@@ -73,7 +73,7 @@ export class HeroSection {
                   </div>
                   
                   <!-- Floating badge -->
-                  <div class="absolute bottom-4 -left-4 md:bottom-10 md:-left-10 glass px-4 py-2 md:px-6 md:py-3 rounded-2xl shadow-xl flex items-center gap-2 md:gap-4 transform -rotate-6 hover:rotate-0 transition-transform">
+                  <div class="absolute bottom-2 left-2 md:bottom-10 md:-left-6 glass px-3 py-1.5 md:px-6 md:py-3 rounded-2xl shadow-xl flex items-center gap-2 md:gap-4 transform -rotate-3 md:-rotate-6 hover:rotate-0 transition-transform">
                     <div class="bg-green-500 w-2 h-2 md:w-3 md:h-3 rounded-full animate-ping"></div>
                     <span class="font-medium text-xs md:text-sm whitespace-nowrap">Available for work</span>
                   </div>
