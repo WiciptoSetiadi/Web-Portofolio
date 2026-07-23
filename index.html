@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <meta name="description" content="Welcome to my portfolio" />
+    
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Portfolio">
+    <meta property="og:description" content="Welcome to my portfolio">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  </head>
+  <body class="antialiased selection:bg-primary-500 selection:text-white dark:selection:bg-primary-400 dark:selection:text-slate-900">
+    <div id="scroll-progress"></div>
+    
+    <!-- Navbar Container -->
+    <header id="navbar-container" class="fixed w-full top-0 z-50 transition-all duration-300"></header>
+
+    <main id="app">
+      <!-- Sections will be injected here dynamically by public-app.js -->
+      <div class="flex items-center justify-center min-h-screen">
+        <div class="animate-pulse flex flex-col items-center">
+            <div class="h-12 w-12 border-4 border-primary-500 border-t-transparent rounded-full animate-spin mb-4"></div>
+            <p class="text-gray-500 dark:text-gray-400">Loading portfolio...</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer Container -->
+    <footer id="footer-container" class="bg-gray-50 dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800"></footer>
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <!-- Main Entry Point -->
+    <script type="module" src="/src/public-app.js"></script>
+    
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  </body>
+</html>

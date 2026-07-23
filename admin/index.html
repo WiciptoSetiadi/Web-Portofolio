@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" class="admin-mode">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Admin Dashboard</title>
+    <meta name="robots" content="noindex, nofollow">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-gray-50 text-gray-900 font-sans antialiased h-screen flex overflow-hidden">
+    
+    <!-- Login Screen -->
+    <div id="login-container" class="fixed inset-0 z-50 bg-gray-50 flex items-center justify-center hidden">
+        <!-- Injected by JS -->
+    </div>
+
+    <!-- Admin App Wrapper -->
+    <div id="admin-app" class="flex h-screen w-full hidden">
+        <!-- Sidebar -->
+        <aside id="sidebar-container" class="w-64 bg-white border-r border-gray-200 flex flex-col transition-all duration-300"></aside>
+        
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Header -->
+            <header id="admin-header" class="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6"></header>
+            
+            <!-- Page Content -->
+            <main id="admin-content" class="flex-1 overflow-y-auto p-6 bg-gray-50">
+                <!-- Dynamic content injected here -->
+            </main>
+        </div>
+    </div>
+
+    <script type="module" src="/src/admin-app.js"></script>
+  </body>
+</html>

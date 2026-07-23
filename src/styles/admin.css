@@ -1,0 +1,46 @@
+/* Admin specific overrides */
+.admin-sidebar-link {
+  @apply flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:bg-primary-50 hover:text-primary-600 transition-colors;
+}
+
+.admin-sidebar-link.active {
+  @apply bg-primary-100 text-primary-700 font-medium;
+}
+
+.dark .admin-sidebar-link {
+  @apply text-slate-400 hover:bg-slate-800 hover:text-primary-400;
+}
+
+.dark .admin-sidebar-link.active {
+  @apply bg-slate-800 text-primary-400 border-l-4 border-primary-500;
+}
+
+/* Data Table */
+.data-table th {
+  @apply px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-gray-50 dark:bg-slate-800 dark:text-gray-400;
+}
+
+.data-table td {
+  @apply px-6 py-4 whitespace-nowrap text-sm text-gray-900 border-b border-gray-200 dark:border-slate-700 dark:text-gray-300;
+}
+
+.data-table tr:hover {
+  @apply bg-gray-50 dark:bg-slate-800/50;
+}
+
+/* Status Badges */
+.badge {
+  @apply px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.badge-published {
+  @apply bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400;
+}
+
+.badge-draft {
+  @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400;
+}
+
+.badge-archived {
+  @apply bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-400;
+}
